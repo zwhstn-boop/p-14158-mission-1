@@ -1,4 +1,29 @@
 package com.back.global.jpa.entity
 
-class BaseEntity {
+import jakarta.persistence.EntityListeners
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType.IDENTITY
+import jakarta.persistence.Id
+import jakarta.persistence.MappedSuperclass
+import org.springframework.data.annotation.CreatedDate
+import org.springframework.data.annotation.LastModifiedDate
+import org.springframework.data.jpa.domain.support.AuditingEntityListener
+import java.time.LocalDateTime
+
+@MappedSuperclass
+@EntityListeners(AuditingEntityListener::class)
+abstract class BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    var id: Int = 0
+        protected set
+
+    @CreatedDate
+    var createDate: LocalDateTime? = null
+        protected set
+
+    @LastModifiedDate
+    var modifyDate: LocalDateTime? = null
+        protected set
 }
