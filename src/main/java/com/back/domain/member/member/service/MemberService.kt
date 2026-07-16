@@ -1,4 +1,22 @@
 package com.back.domain.member.member.service
 
-class MemberService {
+import com.back.domain.member.member.entity.Member
+import com.back.domain.member.member.repository.MemberRepository
+import org.springframework.stereotype.Service
+
+@Service
+class MemberService(
+    private val memberRepository: MemberRepository
+) {
+
+    fun count() = memberRepository.count()
+
+    fun join(
+        username: String,
+        password: String,
+        nickname: String
+    ): Member =
+        memberRepository.save(
+            Member(username, password, nickname)
+        )
 }

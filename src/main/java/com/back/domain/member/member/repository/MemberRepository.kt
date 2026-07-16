@@ -1,4 +1,6 @@
 package com.back.domain.member.member.repository
 
-class MemberRepository {
-}
+import com.back.domain.member.member.entity.Member
+import org.springframework.data.jpa.repository.JpaRepository
+
+interface MemberRepository : JpaRepository<Member, Int>
