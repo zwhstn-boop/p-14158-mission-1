@@ -9,7 +9,8 @@ import jakarta.persistence.ManyToOne
 @Entity
 class Post(
 
-    @ManyToOne
+    @ManyToOne //포스트가 많고 memer는 적다
+    //기본값은 설정해도 되고 하지 않아도 된다
     var author: Member? = null,
 
     var title: String = "",

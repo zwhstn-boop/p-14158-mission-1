@@ -22,8 +22,6 @@ class PostService(
         post.content = content
     }
 
-    fun write(author: Member, title: String, content: String): Post =
-        Post(author, title, content).also {
-            postRepository.save(it)
-        }
+    fun write(author : Member, title : String, content : String) : Post
+            = postRepository.save(Post(author, title, content))
 }

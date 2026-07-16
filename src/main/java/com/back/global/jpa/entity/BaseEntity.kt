@@ -10,7 +10,7 @@ import org.springframework.data.annotation.LastModifiedDate
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import java.time.LocalDateTime
 
-@MappedSuperclass
+@MappedSuperclass //부모 클래스에 달아야 할것
 @EntityListeners(AuditingEntityListener::class)
 abstract class BaseEntity {
 

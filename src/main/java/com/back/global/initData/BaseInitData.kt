@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional
 
 @Configuration
 class BaseInitData(
+    //의존성 주입, 코틀린은 뒤에 변수타입이나 참조원본 선언을 해 주는것을 반드시 명심할것
     private val memberService: MemberService,
     private val postService: PostService
 ) {
@@ -28,7 +29,7 @@ class BaseInitData(
     @Transactional
     fun work1() {
         if (memberService.count() > 0) return
-
+        //일일히 참조할 필요없이 val로 통일
         val memberSystem: Member = memberService.join("system", "1234", "시스템")
         val memberAdmin: Member = memberService.join("admin", "1234", "관리자")
         val memberUser1: Member = memberService.join("user1", "1234", "유저1")
